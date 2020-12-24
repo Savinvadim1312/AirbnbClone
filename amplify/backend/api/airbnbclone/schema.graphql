@@ -1,0 +1,18 @@
+type Post @model {
+  id: ID!
+
+  image: String!
+  type: String!
+  title: String!
+  description: String!
+
+  bed: Int!
+  bedroom: Int!
+  maxGuests: Int!
+
+  oldPrice: Float
+  newPrice: Float!
+
+  latitude: Float!
+  longitude: Float!
+}
