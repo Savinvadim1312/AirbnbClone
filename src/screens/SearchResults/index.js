@@ -6,6 +6,8 @@ import { listPosts } from '../../graphql/queries';
 
 const SearchResultsScreen = (props) => {
 
+  const { guests } = props;
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -13,7 +15,13 @@ const SearchResultsScreen = (props) => {
       try {
 
         const postsResult = await API.graphql(
-          graphqlOperation(listPosts)
+          graphqlOperation(listPosts, {
+            filter: {
+              maxGuests: {
+                ge: guests
+              }
+            }
+          })
         )
 
         setPosts(postsResult.data.listPosts.items);
