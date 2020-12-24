@@ -9,7 +9,6 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 const DestinationSearchScreen = (props) => {
 
   const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
@@ -24,7 +23,7 @@ const DestinationSearchScreen = (props) => {
           textInput: styles.textInput,
         }}
         query={{
-          key: 'AIzaSyCuyNNQbJcq2x9nH6xNVORus9fUp69OKJo',
+          key: 'AIzaSyDYnkl8rGqpQ9-6XjrH3ssqNSDiJHpULGw',
           language: 'en',
           types: '(cities)',
         }}

@@ -1,0 +1,134 @@
+mutation createAccomodation1 {
+  createPost(input: {
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg",
+    type: "Private Room",
+    title: "Bright room in the heart of the city",
+    description: "Lorem Ipsum is simplyLorem Ipsum is simply dummy text",
+
+    bed: 1,
+    bedroom: 1,
+    maxGuests: 2,
+
+    oldPrice: 50,
+    newPrice: 40,
+
+    latitude: 28.080798046161917,
+    longitude: -16.59407023667273,
+  }) {
+    id
+  },
+}
+
+mutation createAccomodation2 {
+  createPost(input: {
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg",
+    type: "Entire Flat",
+    title: "NEW lux. apartment in the center of Santa Cruz",
+    description: "NEW lux. apartment in the center of Santa Cruz Lorem Ipsum is simplyLorem Ipsum is simply dummy text",
+
+    bed: 2,
+    bedroom: 2,
+    maxGuests: 4,
+
+    oldPrice: 120,
+    newPrice: 90,
+
+    latitude: 28.457661219708342,
+    longitude: -16.27489367819541,
+  }) {
+    id
+  },
+}
+
+mutation createAccomodation3 {
+  createPost(input: {
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg",
+    type: "Private Property",
+    title: "Green House Santa Cruz",
+    description: "Green House Santa Cruz is simply Lorem Ipsum is simply dummy text",
+
+    bed: 6,
+    bedroom: 4,
+    maxGuests: 12,
+
+    oldPrice: 220,
+    newPrice: 160,
+
+    latitude: 28.469745368305784,
+    longitude: -16.27847133823158,
+  }) {
+    id
+  },
+}
+
+mutation createAccomodation4 {
+  createPost(input: {
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/4.jpg",
+    type: "Entire Flat",
+    title: "Typical canarian house",
+    description: "Typical canarian house Lorem Ipsum is simply dummy text",
+
+    bed: 3,
+    bedroom: 2,
+    maxGuests: 6,
+
+    oldPrice: 130,
+    newPrice: 110,
+
+    latitude: 28.270146550058424,
+    longitude: -16.42906047587986,
+  }) {
+    id
+  },
+}
+
+mutation createAccomodation5 {
+  createPost(input: {
+    image: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/5.jpg",
+    type: "Garage",
+    title: "Steve Jobs Garage",
+    description: "The OG Garage where Steve Jobs started Apple",
+
+    bed: 1,
+    bedroom: 1,
+    maxGuests: 2,
+
+    oldPrice: 7500,
+    newPrice: 7000,
+
+    latitude: 37.440093744608355,
+    longitude: -122.14084361959273,
+  }) {
+    id
+  },
+}
+
+query showAllProperties {
+  listPosts {
+    items {
+      id
+      title
+      description
+    }
+  }
+}
+
+query showPropertiesBasedOnLocation {
+  listPosts(filter: {
+    and: {
+      latitude: {
+        between: [27.99643616103738, 28.617893425551618], # Tenerife bounderies
+      }
+      longitude: {
+        between: [-16.945665756405603, -16.134050770346267], # Tenerife bounderies
+      }
+    }
+  }) {
+    items {
+      id
+      title
+      latitude
+      longitude
+    }
+  }
+}
